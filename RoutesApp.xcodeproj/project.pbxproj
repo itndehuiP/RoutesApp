@@ -7,21 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62004C00228E661E00CE7035 /* SectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62004BFF228E661E00CE7035 /* SectionHeaderCollectionReusableView.swift */; };
+		62020986229356C000D611AD /* Extension+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62020985229356C000D611AD /* Extension+CLLocation.swift */; };
+		620209882293683C00D611AD /* RouteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620209872293683C00D611AD /* RouteLocation.swift */; };
 		62066E70226E6A2E0011EC3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62066E6F226E6A2E0011EC3D /* AppDelegate.swift */; };
-		62066E72226E6A2E0011EC3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62066E71226E6A2E0011EC3D /* ViewController.swift */; };
 		62066E75226E6A2E0011EC3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62066E73226E6A2E0011EC3D /* Main.storyboard */; };
 		62066E77226E6A2F0011EC3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62066E76226E6A2F0011EC3D /* Assets.xcassets */; };
 		62066E7A226E6A2F0011EC3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62066E78226E6A2F0011EC3D /* LaunchScreen.storyboard */; };
+		62066E85226E7B820011EC3D /* PlaceToVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62066E84226E7B820011EC3D /* PlaceToVisit.swift */; };
+		62066EA5226FC1010011EC3D /* PlaceEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62066EA4226FC1010011EC3D /* PlaceEdge.swift */; };
+		62066EA7226FE8DF0011EC3D /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62066EA6226FE8DF0011EC3D /* LocationsViewController.swift */; };
+		62066EB5227153CE0011EC3D /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62066EB4227153CE0011EC3D /* MapsViewController.swift */; };
+		62066EB922715A7F0011EC3D /* LocationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62066EB822715A7F0011EC3D /* LocationsTableViewCell.swift */; };
+		6259FB812276660F00F1F510 /* PlaceMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6259FB802276660F00F1F510 /* PlaceMarkerView.swift */; };
+		62D146632277D63200895592 /* RoutePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D146622277D63200895592 /* RoutePresentationController.swift */; };
+		62D146652277D78A00895592 /* RouteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D146642277D78A00895592 /* RouteCollectionViewCell.swift */; };
+		62D14676227DFDC400895592 /* colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D14675227DFDC300895592 /* colors.swift */; };
+		62D14679227E0EE600895592 /* ShortestRouteAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D14678227E0EE600895592 /* ShortestRouteAlgorithm.swift */; };
+		62D146A12285A8F700895592 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D146A02285A8F600895592 /* MainViewController.swift */; };
+		62D146A32285D9DD00895592 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D146A22285D9DD00895592 /* Route.swift */; };
+		62D146A5228640DA00895592 /* SavedRouteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D146A4228640DA00895592 /* SavedRouteCollectionViewCell.swift */; };
+		62D146A9228726D800895592 /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D146A8228726D800895592 /* SavedData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62004BFF228E661E00CE7035 /* SectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		62020985229356C000D611AD /* Extension+CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CLLocation.swift"; sourceTree = "<group>"; };
+		620209872293683C00D611AD /* RouteLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteLocation.swift; sourceTree = "<group>"; };
 		62066E6C226E6A2E0011EC3D /* RoutesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62066E6F226E6A2E0011EC3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		62066E71226E6A2E0011EC3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		62066E74226E6A2E0011EC3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62066E76226E6A2F0011EC3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62066E79226E6A2F0011EC3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62066E7B226E6A2F0011EC3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62066E84226E7B820011EC3D /* PlaceToVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceToVisit.swift; sourceTree = "<group>"; };
+		62066EA4226FC1010011EC3D /* PlaceEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceEdge.swift; sourceTree = "<group>"; };
+		62066EA6226FE8DF0011EC3D /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		62066EB4227153CE0011EC3D /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		62066EB822715A7F0011EC3D /* LocationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewCell.swift; sourceTree = "<group>"; };
+		6259FB802276660F00F1F510 /* PlaceMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarkerView.swift; sourceTree = "<group>"; };
+		62D146622277D63200895592 /* RoutePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePresentationController.swift; sourceTree = "<group>"; };
+		62D146642277D78A00895592 /* RouteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCollectionViewCell.swift; sourceTree = "<group>"; };
+		62D14675227DFDC300895592 /* colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colors.swift; sourceTree = "<group>"; };
+		62D14678227E0EE600895592 /* ShortestRouteAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortestRouteAlgorithm.swift; sourceTree = "<group>"; };
+		62D146A02285A8F600895592 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		62D146A22285D9DD00895592 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Route.swift; path = "New Group/Route.swift"; sourceTree = "<group>"; };
+		62D146A4228640DA00895592 /* SavedRouteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRouteCollectionViewCell.swift; sourceTree = "<group>"; };
+		62D146A8228726D800895592 /* SavedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavedData.swift; path = "New Group/SavedData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6202098422931BEE00D611AD /* Extensions+ */ = {
+			isa = PBXGroup;
+			children = (
+				62020985229356C000D611AD /* Extension+CLLocation.swift */,
+			);
+			path = "Extensions+";
+			sourceTree = "<group>";
+		};
 		62066E63226E6A2E0011EC3D = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +94,62 @@
 		62066E6E226E6A2E0011EC3D /* RoutesApp */ = {
 			isa = PBXGroup;
 			children = (
+				62066E83226E6C090011EC3D /* Controllers */,
+				62066E82226E6C020011EC3D /* View */,
+				62066E81226E6BCA0011EC3D /* Model */,
 				62066E6F226E6A2E0011EC3D /* AppDelegate.swift */,
-				62066E71226E6A2E0011EC3D /* ViewController.swift */,
-				62066E73226E6A2E0011EC3D /* Main.storyboard */,
 				62066E76226E6A2F0011EC3D /* Assets.xcassets */,
 				62066E78226E6A2F0011EC3D /* LaunchScreen.storyboard */,
 				62066E7B226E6A2F0011EC3D /* Info.plist */,
 			);
 			path = RoutesApp;
+			sourceTree = "<group>";
+		};
+		62066E81226E6BCA0011EC3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6202098422931BEE00D611AD /* Extensions+ */,
+				62066E84226E7B820011EC3D /* PlaceToVisit.swift */,
+				62066EA4226FC1010011EC3D /* PlaceEdge.swift */,
+				62D146A22285D9DD00895592 /* Route.swift */,
+				62D146A8228726D800895592 /* SavedData.swift */,
+				62D14677227E0BAA00895592 /* Shortest Route Algorithm */,
+				620209872293683C00D611AD /* RouteLocation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62066E82226E6C020011EC3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				62D14675227DFDC300895592 /* colors.swift */,
+				62066E73226E6A2E0011EC3D /* Main.storyboard */,
+				62066EB822715A7F0011EC3D /* LocationsTableViewCell.swift */,
+				6259FB802276660F00F1F510 /* PlaceMarkerView.swift */,
+				62D146642277D78A00895592 /* RouteCollectionViewCell.swift */,
+				62D146A4228640DA00895592 /* SavedRouteCollectionViewCell.swift */,
+				62004BFF228E661E00CE7035 /* SectionHeaderCollectionReusableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		62066E83226E6C090011EC3D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				62066EA6226FE8DF0011EC3D /* LocationsViewController.swift */,
+				62066EB4227153CE0011EC3D /* MapsViewController.swift */,
+				62D146622277D63200895592 /* RoutePresentationController.swift */,
+				62D146A02285A8F600895592 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		62D14677227E0BAA00895592 /* Shortest Route Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				62D14678227E0EE600895592 /* ShortestRouteAlgorithm.swift */,
+			);
+			path = "Shortest Route Algorithm";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +223,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62066E72226E6A2E0011EC3D /* ViewController.swift in Sources */,
+				620209882293683C00D611AD /* RouteLocation.swift in Sources */,
+				62066EA5226FC1010011EC3D /* PlaceEdge.swift in Sources */,
+				62020986229356C000D611AD /* Extension+CLLocation.swift in Sources */,
+				62066EA7226FE8DF0011EC3D /* LocationsViewController.swift in Sources */,
+				62D146A5228640DA00895592 /* SavedRouteCollectionViewCell.swift in Sources */,
+				62066E85226E7B820011EC3D /* PlaceToVisit.swift in Sources */,
+				62004C00228E661E00CE7035 /* SectionHeaderCollectionReusableView.swift in Sources */,
+				62D146A9228726D800895592 /* SavedData.swift in Sources */,
+				62D146A12285A8F700895592 /* MainViewController.swift in Sources */,
+				62D146A32285D9DD00895592 /* Route.swift in Sources */,
+				6259FB812276660F00F1F510 /* PlaceMarkerView.swift in Sources */,
+				62D146632277D63200895592 /* RoutePresentationController.swift in Sources */,
+				62D14679227E0EE600895592 /* ShortestRouteAlgorithm.swift in Sources */,
+				62066EB5227153CE0011EC3D /* MapsViewController.swift in Sources */,
+				62D146652277D78A00895592 /* RouteCollectionViewCell.swift in Sources */,
+				62066EB922715A7F0011EC3D /* LocationsTableViewCell.swift in Sources */,
+				62D14676227DFDC400895592 /* colors.swift in Sources */,
 				62066E70226E6A2E0011EC3D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
