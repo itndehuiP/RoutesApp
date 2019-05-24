@@ -11,8 +11,8 @@ import CoreLocation
 import MapKit
 
 /// A place geographically defined
-class PlaceToVisit: NSObject  {
-    let location: CLLocation
+class PlaceToVisit: NSObject, Codable  {
+    let location: RouteLocation
     ///The index occuppied by the place in a Route
     var index: Int
     ///Address of the place
@@ -24,7 +24,7 @@ class PlaceToVisit: NSObject  {
      Initializes a new place with the provided location and name
      */
     init(latitude: Double, longitude: Double, name: String) {
-        self.location = CLLocation(latitude: latitude, longitude: longitude)
+        self.location = RouteLocation(latitude: latitude, longitude: longitude)
         self.name = name
         self.state = false
         index = 1
@@ -35,7 +35,7 @@ extension PlaceToVisit: MKAnnotation {
 
     var coordinate : CLLocationCoordinate2D {
         get {
-            return location.coordinate
+            return location.getLocation()
         }
     }
     

@@ -56,7 +56,7 @@
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lj1-sO-NRC">
                                 <rect key="frame" x="10" y="199" width="355" height="460"/>
-                                <color key="backgroundColor" red="0.74855457271423398" green="0.88043150048570584" blue="0.55061541815625692" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.75005835294723511" green="0.88345092535018921" blue="0.54895591735839844" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OFc-DL-Fcb">
                                     <size key="itemSize" width="349" height="44"/>
                                     <size key="headerReferenceSize" width="50" height="43"/>

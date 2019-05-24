@@ -16,16 +16,16 @@ class MapsViewController: UIViewController {
     var routeLines: [ MKPolyline] = [ ]
     var places: [PlaceToVisit ] = [ ]
     var selectedPlace : PlaceToVisit? = nil
-    var currentLocation : CLLocation? = CLLocation(latitude: 19.349188, longitude: -99.16351256089476)
+    var currentLocation : CLLocation? = CLLocation(latitude: 40.730610, longitude: 40.730610)
     let regionRadius: CLLocationDistance = 2500
     private var saved: Bool = false
     var receivedFromMain = false
     
-   
     @IBOutlet weak var mapView : MKMapView!
     @IBOutlet weak var addPlaceButton: UIButton!
     @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var goBackToMainButton: UIButton!
+    
     ///It configures the view and view controller according to received information.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,12 @@ class MapsViewController: UIViewController {
         for place in places {
             place.state = false 
         }
-        let region = MKCoordinateRegion(center: place.location.coordinate, latitudinalMeters: self.regionRadius, longitudinalMeters: regionRadius)
+        if self.saved {
+            let indexOfRoute = SavedData.shared.selectedRoute
+            SavedData.shared.getSavedRoutes()[ indexOfRoute!].setPlaces(places: self.places)
+            SavedData.shared.saveData()
+        }
+        let region = MKCoordinateRegion(center: place.coordinate, latitudinalMeters: self.regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(region, animated: true)
         mapView.addAnnotations(places)
         mapView.register(PlaceMarkerView.self , forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
@@ -71,8 +76,8 @@ class MapsViewController: UIViewController {
         } else {
             locationManager?.requestWhenInUseAuthorization()
             if CLLocationManager.authorizationStatus() == .denied {
-                        let region = MKCoordinateRegion(center: currentLocation!.coordinate , latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-                        mapView.setRegion(region, animated: true )
+                let region = MKCoordinateRegion(center: currentLocation!.coordinate , latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+                mapView.setRegion(region, animated: true )
             }
             
         }
@@ -100,15 +105,15 @@ class MapsViewController: UIViewController {
             }
         } else if segue.identifier == "LocationsVCSegue" {
             guard let locationsController = segue.destination as? LocationsViewController else { return }
-            locationsController.delegate = self 
-            
+            if CLLocationManager.authorizationStatus() != .denied {
+                locationsController.initialLocation = currentLocation!.coordinate
+            }
+            locationsController.delegate = self
         }
     }
     /// It dismiss itself and save the route if it is neccesary
     @IBAction func goBackToMain(_ sender: Any) {
-        print("places count: \(places.count) and savedStte: \(saved )")
         if places.count>2 && !saved {
-            
             let alert = UIAlertController(title: "Do you want to save the route", message: nil, preferredStyle: .alert)
             alert.addTextField() { textField in
                 textField.placeholder = "Type the name of the route"
@@ -124,11 +129,8 @@ class MapsViewController: UIViewController {
                 if let name = alert.textFields?.first?.text {
                         let newRoute = Route(name: name, places: self.places)
                         SavedData.shared.addSavedRoute(newRoute: newRoute)
-                    if self.saved {
-                        let indexOfRoute = SavedData.shared.selectedRoute
-                        SavedData.shared.getSavedRoutes()[ indexOfRoute!].setPlaces(places: self.places)
-                    }
-                    self.dismiss(animated: true, completion: nil)
+                        SavedData.shared.saveData()
+                        self.dismiss(animated: true, completion: nil)
                         }
                     }
                 ) )
@@ -209,7 +211,6 @@ extension MapsViewController: RoutePresentationControllerDelegate {
     }
 
     func routePresentationControllerWillDisappear(routeLines: [MKPolyline], placesInRoute: [PlaceToVisit]) {
-        print("Delegate for rooute presentation is called")
         mapView.removeAnnotations(self.places)
         mapView.removeOverlays(routeLines)
         self.routeLines.removeAll()

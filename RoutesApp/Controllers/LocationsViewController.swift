@@ -17,14 +17,13 @@ class LocationsViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     
     lazy var geocoder = CLGeocoder()
-    let initialLocation = CLLocationCoordinate2D(latitude: 19.320556, longitude: -99.151701)
+    var initialLocation = CLLocationCoordinate2D(latitude: 40.730610, longitude: 40.730610)
     var matchingItems : [ MKMapItem ] = []
     let searchRadius: CLLocationDistance = 1000
     let searchController = UISearchController(searchResultsController: nil)
     var selectedPlace : PlaceToVisit? = nil
     var delegate: LocationsViewControllerDelegate? 
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,6 @@ class LocationsViewController: UIViewController {
         searchController.searchBar.placeholder = "Search the address of the destination"
         searchBar.addSubview(searchController.searchBar)
         cancelButton.layer.cornerRadius = 4.0
-        searchAddress(addressString: "Riff")
     }
     ///It dismiss itself and go back to *mapsViewController*
     @IBAction func backToMapsVC(_ sender: Any) {
@@ -64,7 +62,6 @@ extension LocationsViewController: MKMapViewDelegate {
                 }
                 
                 for item in response.mapItems {
-                    //print("name: \(item.name), placemark: \(item.placemark.title)")
                     self.matchingItems.append(item)
                 }
                 self.tableView.reloadData()

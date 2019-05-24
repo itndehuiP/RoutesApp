@@ -24,11 +24,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureButton()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print( "view will appear")
         if SavedData.shared.getSavedRoutes().count != 0 {
             editButton.isHidden = false 
             collectionView.reloadData()
@@ -70,7 +68,11 @@ class MainViewController: UIViewController {
     /// It sets non editing configuration
     @IBAction func doneEditingRoute(_ sender: Any) {
         isEditing = false
-        editButton.isHidden = false
+        if SavedData.shared.countRoutes() == 0 {
+            editButton.isHidden = true 
+        } else {
+            editButton.isHidden = false
+        }
         doneEditingButton.isHidden = true
         deleteInRouteButton.isHidden = true
     }
@@ -80,9 +82,9 @@ class MainViewController: UIViewController {
         if let indexPathsSelected = collectionView.indexPathsForSelectedItems {
             let items = indexPathsSelected.map { $0.item}.sorted().reversed()
             for item in items {
-                print("this is the item \(item )")
                 SavedData.shared.deleteRoute(index: item)
             }
+            SavedData.shared.saveData()
             collectionView.deleteItems(at: indexPathsSelected)
             if SavedData.shared.countRoutes() == 0 {
                 isEditing = false

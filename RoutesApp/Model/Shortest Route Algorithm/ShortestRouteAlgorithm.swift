@@ -88,8 +88,7 @@ class ShortestRouteAlgorithm {
                         self?.placeEdges.append(placeEdge)
                     handlerRequest?(self!.placeEdges.count)
                     }
-                    
-                    }
+                }
             }
         }
     }
@@ -133,7 +132,6 @@ class ShortestRouteAlgorithm {
                 }
                 self.placesVisited.append(place)
                 self.EdgesInOptimalRoute.append(shortestEdge)
-                print("shortest Edge: \(shortestEdge.weight), for place: \(shortestEdge.source.index)")
                 self.counter += 1
                 self.findShortestPath(from: shortestEdge.destination)
             }

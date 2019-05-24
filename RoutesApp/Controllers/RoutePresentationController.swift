@@ -72,21 +72,26 @@ class RoutePresentationController: UIViewController {
     }
     /// It implements the calculator to find the shortest route for visit all the places 
     @IBAction func createOptimalRoute(_ sender: Any) {
-        guard let startPlace = self.startPlace else {return }
-        let actInd = self.showActivityIndicatory(uiView: self.view )
-        let calculator = ShortestRouteAlgorithm(placesToVisit: self.places, starPlace: startPlace)
-        calculator.createRoute() { (finished) in
-            
-            if finished {
-                ( self.places, self.polylinesInRoute, self.totalDistance ) =  calculator.getOptimalRoute()
-                if !self.places.isEmpty {
-                    self.collectionView.reloadData()
-                    let distance = self.totalDistance / 1000
-                    self.distanceLabel.text = "Total distance is \(distance) Km"
-                    self.showRouteButton.isHidden = false
-                    actInd.stopAnimating()
+        if places.count >= 2 {
+            guard let startPlace = self.startPlace else {return }
+            let actInd = self.showActivityIndicatory(uiView: self.view )
+            let calculator = ShortestRouteAlgorithm(placesToVisit: self.places, starPlace: startPlace)
+            calculator.createRoute() { (finished) in
+                
+                if finished {
+                    ( self.places, self.polylinesInRoute, self.totalDistance ) =  calculator.getOptimalRoute()
+                    if !self.places.isEmpty {
+                        self.collectionView.reloadData()
+                        let distance = self.totalDistance / 1000
+                        self.distanceLabel.text = "Total distance is \(distance) Km"
+                        self.showRouteButton.isHidden = false
+                        actInd.stopAnimating()
+                    }
                 }
             }
+        }
+        else {
+            distanceLabel.text = "Please add more places"
         }
     }
     
@@ -117,7 +122,6 @@ class RoutePresentationController: UIViewController {
         if let indexPathsSelected = collectionView.indexPathsForSelectedItems {
             let items = indexPathsSelected.map { $0.item}.sorted().reversed()
             for item in items {
-                print("item is: \(item)")
                 places.remove(at: item)
                 distanceLabel.text = "select the start of the route"
                 totalDistance = 0
@@ -125,6 +129,10 @@ class RoutePresentationController: UIViewController {
             if saved {
                 let indexOfRoute = SavedData.shared.selectedRoute
                 SavedData.shared.getSavedRoutes()[ indexOfRoute!].setPlaces(places: places)
+                SavedData.shared.saveData()
+            }
+            for place in places {
+                place.state = false
             }
             polylinesInRoute.removeAll()
             delegate?.routePresentationControllerWillDisappear(routeLines: polylinesInRoute, placesInRoute: places)
@@ -133,7 +141,7 @@ class RoutePresentationController: UIViewController {
         
     }
     
-     ///It saves information for the **Map Controller** and dismiss itself
+     ///It saves information into the **Map Controller** and dismiss itself
     @IBAction func showRouteinMap(_ sender: Any) {
         delegate?.routePresentationControllerWillDisappear(routeLines: polylinesInRoute, placesInRoute: places)
         dismiss(animated: true, completion: nil)
@@ -157,6 +165,7 @@ class RoutePresentationController: UIViewController {
                     self.nameRoute.text = "\(name)"
                     let newRoute = Route(name: name, places: self.places)
                     SavedData.shared.addSavedRoute(newRoute: newRoute)
+                    SavedData.shared.saveData()
                     SavedData.shared.selectedRoute = SavedData.shared.countRoutes()-1
                     self.saveRouteButton.isHidden = true
                     self.delegate?.routePresentationControllerHasSavedRoute(saved: true)
@@ -188,7 +197,7 @@ extension RoutePresentationController: UICollectionViewDataSource {
     
     ///It obtains the data and configure each cell, the cell is custom as *RouteCollectionCell*
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RouteCellIdentifier", for: indexPath) as? RouteCollectionViewCell else { print("cant cast")
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RouteCellIdentifier", for: indexPath) as? RouteCollectionViewCell else {
             return UICollectionViewCell() }
         cell.indexLabel.text = "\(indexPath.row)"
         cell.titleLabel.text = places[ indexPath.row].name
